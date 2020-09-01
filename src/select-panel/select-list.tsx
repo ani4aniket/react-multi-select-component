@@ -41,6 +41,7 @@ const SelectList = ({
     if (disabled) {
       return;
     }
+    // TODO: insert single selection
     onChange(
       checked
         ? [...value, option]

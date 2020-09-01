@@ -45,6 +45,7 @@ const MultiSelect = ({
   filterOptions,
   labelledBy,
   onMenuToggle,
+  panelWidth,
 }: ISelectProps) => {
   const nvalue = value || [];
   return (
@@ -70,6 +71,7 @@ const MultiSelect = ({
         labelledBy={labelledBy}
         onMenuToggle={onMenuToggle}
         ArrowRenderer={ArrowRenderer}
+        panelWidth={panelWidth}
       >
         <DropdownHeader
           value={nvalue}
