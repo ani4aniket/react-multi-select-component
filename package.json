@@ -11,10 +11,10 @@
   "sideEffects": false,
   "scripts": {
     "postinstall": "npm run build",
-    "start": "node tsdx watch",
+    "start": "tsdx watch",
     "build": "tsdx build && filesize",
-    "lint": "node tsdx lint",
-    "prepare": "node tsdx watch",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build && filesize",
     "storybook": "start-storybook -p 6006",
     "format": "prettier --write src/**/*",
     "build-storybook": "build-storybook"
