@@ -11,10 +11,10 @@
   "sideEffects": false,
   "scripts": {
     "postinstall": "npm run build",
-    "start": "tsdx watch",
+    "start": "node node_modules/tsdx/dist/index.js watch",
     "build": "node node_modules/tsdx/dist/index.js build && node node_modules/@ampproject/filesize/dist/api.js",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build && filesize",
+    "lint": "node node_modules/tsdx/dist/index.js lint",
+    "prepare": "node node_modules/tsdx/dist/index.js build && node node_modules/@ampproject/filesize/dist/api.js",
     "storybook": "start-storybook -p 6006",
     "format": "prettier --write src/**/*",
     "build-storybook": "build-storybook"
