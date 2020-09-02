@@ -12,7 +12,7 @@
   "scripts": {
     "postinstall": "npm run build",
     "start": "tsdx watch",
-    "build": "tsdx build && filesize",
+    "build": "node node_modules/tsdx/dist/index.js build && node node_modules/@ampproject/filesize/dist/api.js",
     "lint": "tsdx lint",
     "prepare": "tsdx build && filesize",
     "storybook": "start-storybook -p 6006",
