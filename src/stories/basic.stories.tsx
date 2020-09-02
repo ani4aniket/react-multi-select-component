@@ -1,7 +1,7 @@
 import { boolean, text, withKnobs } from "@storybook/addon-knobs";
 import React, { useState } from "react";
 
-import MultiSelect from "../src/multi-select";
+import MultiSelect from "./../multi-select";
 import { options } from "./constants";
 
 export default {
