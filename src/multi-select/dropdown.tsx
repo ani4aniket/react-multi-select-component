@@ -5,9 +5,12 @@
  */
 import { css } from "goober";
 import React, { useEffect, useRef, useState } from "react";
+import cx from "classnames";
 
 import Arrow from "./arrow";
 import Loading from "./loading";
+
+const PADDING = 30;
 
 interface IDropdownProps {
   children?;
@@ -19,6 +22,7 @@ interface IDropdownProps {
   labelledBy?: string;
   onMenuToggle?;
   ArrowRenderer?;
+  panelWidth?: number;
 }
 
 const PanelContainer = css({
@@ -48,6 +52,15 @@ const DropdownContainer = css({
   },
 });
 
+const PanelContainerRightToLeft = css({
+  right: 0,
+});
+
+const PanelContainerWidth = (value: number) =>
+  css({
+    width: `${value}px`,
+  });
+
 const DropdownHeading = css({
   position: "relative",
   padding: "0 var(--rmsc-p)",
@@ -73,12 +86,15 @@ const Dropdown = ({
   disabled,
   shouldToggleOnHover,
   labelledBy,
+  panelWidth,
   onMenuToggle,
   ArrowRenderer,
 }: IDropdownProps) => {
   const [expanded, setExpanded] = useState(false);
   const [hasFocus, setHasFocus] = useState(false);
+  const [direction, setDirection] = useState("left-to-right");
   const FinalArrow = ArrowRenderer || Arrow;
+  const hasPanelWidth = !!panelWidth;
 
   const wrapper: any = useRef();
 
@@ -122,8 +138,24 @@ const Dropdown = ({
 
   const handleMouseLeave = () => handleHover(false);
 
-  const toggleExpanded = () =>
+  const hasSpace = (elRef: HTMLElement, additionalWidth?: number) => {
+    if (!additionalWidth) {
+      return true;
+    }
+    const { innerWidth } = window;
+    const { x } = elRef.getBoundingClientRect();
+    return x + additionalWidth < innerWidth - PADDING;
+  };
+
+  const toggleExpanded = (e: any) => {
+    // Changes in this file from source
+    // add function to verify if there is enough space to render if not will move to the left
+    const dir = hasSpace(e.currentTarget, panelWidth)
+      ? "left-to-right"
+      : "right-to-left";
+    setDirection(dir);
     setExpanded(isLoading || disabled ? false : !expanded);
+  };
 
   return (
     <div
@@ -149,7 +181,18 @@ const Dropdown = ({
         <FinalArrow expanded={expanded} />
       </div>
       {expanded && (
-        <div className={`${PanelContainer} dropdown-content`}>
+        <div
+          className={cx(
+            PanelContainer,
+            {
+              [PanelContainerWidth(panelWidth!)]: hasPanelWidth,
+            },
+            {
+              [PanelContainerRightToLeft]: direction === "right-to-left",
+            },
+            "dropdown-content"
+          )}
+        >
           <div className="panel-content">
             <ContentComponent {...contentProps} />
           </div>

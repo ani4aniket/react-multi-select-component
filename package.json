@@ -10,6 +10,7 @@
   "typings": "dist/index.d.ts",
   "sideEffects": false,
   "scripts": {
+    "postinstall": "npm:run:build",
     "start": "tsdx watch",
     "build": "tsdx build && filesize",
     "lint": "tsdx lint",
