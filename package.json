@@ -10,7 +10,7 @@
   "typings": "dist/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "postinstall": "npm install && npm run build",
+    "postinstall": "npm run build",
     "start": "tsdx watch",
     "build": "node node_modules/tsdx/dist/index.js build && node node_modules/@ampproject/filesize/dist/api.js",
     "lint": "tsdx lint",
