@@ -1,6 +1,6 @@
 {
   "name": "@ani4aniket/react-multi-select-component",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Simple and lightweight multiple selection dropdown component with checkboxes, search and select-all",
   "author": "Aniket Kumar <aniketkumar049@gmail.com>",
   "license": "MIT",
