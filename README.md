@@ -1,4 +1,4 @@
-## react-multi-select-component
+# react-multi-select-component
 
 Simple and lightweight multiple selection dropdown component with `checkboxes`, `search` and `select-all`
 
