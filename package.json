@@ -1,10 +1,10 @@
 {
-  "name": "react-multi-select-component",
-  "version": "3.0.1",
+  "name": "@ani4aniket/react-multi-select-component",
+  "version": "1.0.1",
   "description": "Simple and lightweight multiple selection dropdown component with checkboxes, search and select-all",
-  "author": "Harsh Zalavadiya",
+  "author": "Aniket Kumar <aniketkumar049@gmail.com>",
   "license": "MIT",
-  "repository": "harshzalavadiya/react-multi-select-component",
+  "repository": "ani4aniket/react-multi-select-component",
   "main": "dist/index.js",
   "module": "dist/react-multi-select-component.esm.js",
   "typings": "dist/index.d.ts",
@@ -24,6 +24,9 @@
   },
   "dependencies": {
     "goober": "^2.0.4"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "devDependencies": {
     "@ampproject/filesize": "^4.2.0",
